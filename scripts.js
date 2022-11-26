@@ -5,25 +5,37 @@ const count = 30;
 const ACCESS_KEY = "nBUpEnnXky2qJJmP5on8bo3ciMYnOxF9cdBvd3A-GQo"
 const apiURL = `https://api.unsplash.com/photos/random?client_id=${ACCESS_KEY}&count=${count}` 
 
+function putAttributes(element, attributes) {
+    for(const key in attributes) {
+        element.setAttribute(key, attributes[key])
+    }
+}
+
 let photosArray = []
 
 function displayImages() {
     photosArray.forEach((photo) => {
         const item = document.createElement('a');
-        item.setAttribute('href', photo.links.html);
-        item.setAttribute('target', '_blank')
-        
+        putAttributes(item, {
+            href: photo.links.html, 
+            target: "_blank"
+        })  
         // img 
         const image = document.createElement('img');
-        image.setAttribute("src", photo.urls.regular);
+        putAttributes(image, {
+            src: photo.urls.regular
+        })
         if(!photo.description) {
-            image.setAttribute('alt' , "Please go to the website");
-            image.setAttribute('title' , "Please go to the website")
+            putAttributes(image, {
+                alt: "Please go to the website",
+                title: "Please click on Image"
+            })
         } else {
-            image.setAttribute('alt' , photo.description);
-            image.setAttribute('title' , photo.description)
+            putAttributes(image, {
+                alt: photo.description, 
+                title: photo.description
+            })
         }
-        
         // Add to UI
         item.appendChild(image);
         imageContainer.appendChild(item)
