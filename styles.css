@@ -8,6 +8,9 @@ body {
     font-family: 'Sono', sans-serif;
     background: whitesmoke;
 }
+.container {
+    padding: 0 30px;
+}
 .head--title {
     text-align: center;
     margin: 15px auto 60px;
@@ -32,13 +35,16 @@ body {
 /* Loading spinner */
 
 .img--container {
-    margin: 10px 30%;
+    margin: 10 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 15px;
 }
 
 .img--container img {
     width: 100%;
     max-width: 100%;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 @media  (max-width: 600px) {
