@@ -2,7 +2,7 @@ const imageContainer = document.querySelector('.img--container')
 const loader = document.querySelector('.loader')
 
 // Unsplash API
-let count = 5;   
+let count = 3;   
 const ACCESS_KEY = "nBUpEnnXky2qJJmP5on8bo3ciMYnOxF9cdBvd3A-GQo"
 let apiURL = `https://api.unsplash.com/photos/random?client_id=${ACCESS_KEY}&count=${count}&orientation=landscape` 
 
@@ -22,7 +22,7 @@ function onLoadImage() {
     if(loadedImages === totalImages) {
         loader.hidden = true;
         ready = true;
-        count = 30;
+        count = 15;
         apiURL = `https://api.unsplash.com/photos/random?client_id=${ACCESS_KEY}&count=${count}&orientation=landscape` 
     }
 }
